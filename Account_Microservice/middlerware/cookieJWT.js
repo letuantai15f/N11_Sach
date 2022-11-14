@@ -10,6 +10,6 @@ exports.cookieJwtAuth = (req, res, next) => {
     }
   } catch (err) {
     res.clearCookie("token");
-    return res.redirect("/");
+    return res.status(500).json("Vui long dang nhap");
   }
 };
