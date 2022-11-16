@@ -1,5 +1,5 @@
 services:
-- name: users
-url: http://localhost:3001
-- name: products
-url: http://localhost:3002
+  - name: books
+    url: http://localhost:3002
+  - name: user
+    url: http://localhost:3001

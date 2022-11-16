@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
-const { cookieJWT } = require("./middlerware/cookieJWT");
+// const { cookieJWT } = require("./middlerware/cookieJWT");
 const cookieParser = require("cookie-parser");
 const app = express();
-const port=3001
+const port=3002
 mongoose.connect("mongodb+srv://letuanta15f:2525123@cluster0.sxhqrvc.mongodb.net/?retryWrites=true&w=majority", () => {
  console.log("MongoDB is connected");
   });
@@ -21,6 +21,7 @@ const bookRouter = require("./routes/book");
 
 //useRoute
 app.use("/",bookRouter);
+
 
 
 

@@ -17,7 +17,7 @@ const pathFile = resolve(process.cwd(),'config.yml')
 console.log('pathFile: ',pathFile);
 const readConfig =readFileSync(pathFile,{encoding:'utf8'})
 console.log('readConfig: ',readConfig);
-const {services} = load(readConfig,{json:true})
+const  {services}  = load(readConfig,{json:true})
 console.log('services: ',services);
 
 
@@ -34,15 +34,16 @@ app.get('/',(req,res)=>{
 console.log('services: ',services);
 
 
-services.forEach(({name,url}) => {
-    app.use('/${name}',httpProxy(url,{timeout:3000}))
-});
+// services.forEach(({name,url}) => {
+//     app.use('/${name}',httpProxy(url,{timeout:3000}))
+// });
 
 // services.forEach(({name,url}) => {
 //     app.use('/${name}',httpProxy(url,{timeout:3000}))
     
 // });
-// app.use('/products',httpProxy('http://localhost:3002',{timeout:3000}))
+app.use('/books',httpProxy('http://localhost:3002',{timeout:3000}))
+app.use('/user',httpProxy('http://localhost:3001',{timeout:3000}))
 
 
 
