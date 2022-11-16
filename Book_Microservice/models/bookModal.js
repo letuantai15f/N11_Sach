@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const BookSchema = new Schema({
-  uuid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true
