@@ -18,6 +18,9 @@ class BookRepository {
   getBookById(_id) {
     return this.bookModel.findOne({ _id });
   }
+  getBookByName(name) {
+    return this.bookModel.findOne({ name });
+  }
   
   updateBookById(_id, name, releaseDate, authorName) {
     return this.bookModel.findOneAndUpdate({ _id }, {
@@ -27,6 +30,9 @@ class BookRepository {
 
   deleteBookById(_id) {
     return this.bookModel.findOneAndDelete({ _id });
+  }
+  deleteBookByName(name) {
+    return this.bookModel.findOneAndDelete({ name });
   }
 }
 

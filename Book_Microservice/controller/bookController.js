@@ -35,6 +35,16 @@ exports.getBookById = async (req, res, next) => {
   }
 };
 
+exports.getBookByName = async (req, res, next) => {
+  try {
+    const response = await bookService.getBookByName(req);
+    res.statusCode = response.statusCode;
+    return res.json({ message: response.message, data: response.data });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.updateBookById = async (req, res, next) => {
   try {
     const response = await bookService.updateBookById(req);
@@ -48,6 +58,16 @@ exports.updateBookById = async (req, res, next) => {
 exports.deleteBookById = async (req, res, next) => {
   try {
     const response = await bookService.deleteBookById(req);
+    res.statusCode = response.statusCode;
+    return res.json({ message: response.message, data: response.data });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.deleteBookByName = async (req, res, next) => {
+  try {
+    const response = await bookService.deleteBookByName(req);
     res.statusCode = response.statusCode;
     return res.json({ message: response.message, data: response.data });
   } catch (error) {

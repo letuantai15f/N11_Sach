@@ -85,12 +85,45 @@ class BookService {
     response.data = book;
     return response;
   }
+  async getBookByName(req) {
+    const response = {};
+    // eslint-disable-next-line no-shadow
+    const { name } = req.body;
+
+    const book = await this.bookRepository.getBookByName(name);
+    if (!book) {
+      response.message = customResourceResponse.recordNotFound.message;
+      response.statusCode = customResourceResponse.recordNotFound.statusCode;
+      return response;
+    }
+    response.message = customResourceResponse.success.message;
+    response.statusCode = customResourceResponse.success.statusCode;
+    response.data = book;
+    return response;
+  }
   async deleteBookById(req) {
     const response = {};
     // eslint-disable-next-line no-shadow
     const { _id } = req.body;
 
     const deletedBook = await this.bookRepository.deleteBookById(_id);
+    if (!deletedBook) {
+      response.message = customResourceResponse.recordNotFound.message;
+      response.statusCode = customResourceResponse.recordNotFound.statusCode;
+      return response;
+    }
+
+    response.message = customResourceResponse.success.message;
+    response.statusCode = customResourceResponse.success.statusCode;
+    return response;
+  }
+
+  async deleteBookByName(req) {
+    const response = {};
+    // eslint-disable-next-line no-shadow
+    const { name } = req.body;
+
+    const deletedBook = await this.bookRepository.deleteBookByName(name);
     if (!deletedBook) {
       response.message = customResourceResponse.recordNotFound.message;
       response.statusCode = customResourceResponse.recordNotFound.statusCode;
