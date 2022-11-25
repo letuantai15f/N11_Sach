@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+
+// const { cookieJWT } = require("./middlerware/cookieJWT");
 const cookieParser = require("cookie-parser");
 const app = express();
 const port=3001
@@ -20,6 +22,7 @@ const bookRouter = require("./routes/book");
 
 //useRoute
 app.use("/",bookRouter);
+
 
 
 

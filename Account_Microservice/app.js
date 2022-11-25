@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 
 const cookieParser = require("cookie-parser");
 const app = express();
-const port=3000
+const port=3001
 mongoose.connect("mongodb+srv://letuanta15f:2525123@cluster0.sxhqrvc.mongodb.net/?retryWrites=true&w=majority", () => {
  console.log("MongoDB is connected");
   });
